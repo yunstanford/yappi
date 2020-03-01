@@ -202,7 +202,12 @@ def func_matches(stat, funcs):
             not isinstance(func, types.BuiltinMethodType):
             funcs.add(func.__code__)
 
-    return _fn_descriptor_dict[stat.full_name] in funcs
+    try:
+        return _fn_descriptor_dict[stat.full_name] in funcs
+    except TypeError:
+        # some builtion methods like <method 'get' of 'dict' objects> are not hashable
+        # thus we cannot search for them in funcs set.
+        return False
 
 
 """
