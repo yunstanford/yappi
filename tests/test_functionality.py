@@ -114,7 +114,7 @@ class BasicUsage(utils.YappiUnitTestCase):
         c()
         d()
         stats = yappi.get_func_stats(
-            filter_callback=lambda x: x.func_matches([a, b])
+            filter_callback=lambda x: yappi.func_matches(x, [a, b])
         )
         r1 = '''
         tests/test_functionality.py:98 a      2      0.000010  0.200350  0.100175
