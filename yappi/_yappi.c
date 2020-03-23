@@ -1528,14 +1528,13 @@ _pitenumstat(_hitem *item, void *arg)
         tag = PyLong_AsVoidPtr(eargs->enum_args->func_filter.tag);
     }
 
-    _DebugPrintObjects(4, pt->name, pt->modname, eargs->ctx->name, pt->fn_descriptor);
-
     exc = PyObject_CallFunction(eargs->enum_args->enumfn, "((OOkkkIffIOkOkO))", 
                         pt->name, pt->modname, pt->lineno, pt->callcount,
                         pt->nonrecursive_callcount, pt->builtin, 
                         _normt(pt->ttotal), _normt(pt->tsubtotal),
                         pt->index, children, eargs->ctx->id, eargs->ctx->name, 
                         tag, pt->fn_descriptor);
+    printf("111->>> %p %p %p %p\n", pt->name, pt->modname, pt->fn_descriptor, eargs->ctx->name);
     if (!exc) {
         PyErr_Print();
         Py_XDECREF(children);
