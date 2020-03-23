@@ -1533,7 +1533,7 @@ _pitenumstat(_hitem *item, void *arg)
                         pt->nonrecursive_callcount, pt->builtin, 
                         _normt(pt->ttotal), _normt(pt->tsubtotal),
                         pt->index, children, eargs->ctx->id, eargs->ctx->name, 
-                        tag, pt->fn_descriptor);
+                        tag, pt->name);
     if (!exc) {
         PyErr_Print();
         Py_XDECREF(children);
