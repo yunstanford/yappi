@@ -1525,7 +1525,7 @@ _pitenumstat(_hitem *item, void *arg)
         pt->callcount = 1;
     tag = 0;
     if (eargs->enum_args->func_filter.tag) {
-        tag = PyLong_AsVoidPtr(eargs->enum_args->func_filter.tag);
+        //tag = PyLong_AsVoidPtr(eargs->enum_args->func_filter.tag);
         tag = 1;
     }
 
