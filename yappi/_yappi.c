@@ -1523,20 +1523,20 @@ _pitenumstat(_hitem *item, void *arg)
         pt->tsubtotal = 0;
     if (pt->callcount == 0)
         pt->callcount = 1;
+
     tag = 0;
     if (eargs->enum_args->func_filter.tag) {
         tag = PyLong_AsVoidPtr(eargs->enum_args->func_filter.tag);
     }
 
-    exc = PyObject_CallFunction(eargs->enum_args->enumfn, "((OOkkkIffIOkOkO))", 
+    exc = PyObject_CallFunction(eargs->enum_args->enumfn, "((OOkkkIffIOkOOk))", 
                         pt->name, pt->modname, pt->lineno, pt->callcount,
                         pt->nonrecursive_callcount, pt->builtin, 
                         _normt(pt->ttotal), _normt(pt->tsubtotal),
                         pt->index, children, eargs->ctx->id, eargs->ctx->name, 
-                        tag, pt->fn_descriptor);
-    //printf("111->>> %p %p %p %p\n", pt->name, pt->modname, pt->fn_descriptor, eargs->ctx->name);
+                        pt->fn_descriptor, tag);
+
     if (!exc) {
-        printf("ddd\n");
         PyErr_Print();
         Py_XDECREF(children);
         return 1; // abort enumeration
