@@ -158,7 +158,7 @@ class MultiThreadTests(YappiUnitTestCase):
         tests/test_asyncio.py:137 driver      1      0.000061  3.744064  3.744064
         tests/test_asyncio.py:96 recursive_a  6/1    0.000188  3.739663  0.623277
         tests/test_asyncio.py:8 async_sleep   7      0.000085  2.375271  0.339324
-        tests/utils.py:135 burn_io            5      0.000044  2.187000  0.437400
+        tests/utils.py:135 burn_io            5      0.000044  1.700000  0.437400
         tests/test_asyncio.py:87 a            2      0.000019  1.842275  0.921138
         tests/utils.py:126 burn_cpu           2      0.800000  1.019460  0.509730
         tests/test_asyncio.py:92 b            1      0.000005  0.921055  0.921055
